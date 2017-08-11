@@ -1,0 +1,14 @@
+@import emails.html.emailHtmlTemplate
+@(orgName: String, supportEmail: String, verifyUrl: String)
+
+@emailHtmlTemplate("Reviewer Invitation") {
+    Hello,<br />
+    <br />
+    You have been invited to join LRNG as a Reviewer for @orgName. This will allow you to view content, review playlist submissions and award XPs and badges to your learners. To learn more about your new role as a Reviewer, read this article: <a href="https://intercom.help/lrng/getting-started-for-organizations/getting-started-for-reviewers">Getting Started for Reviewers</a>.<br/>
+    <br />
+    To finish registering your account, please <a href="@verifyUrl">CLICK HERE</a>. The link will expire in 15 days.<br />
+    Have questions? Write us at <a href="mailto:@supportEmail">@supportEmail</a>.<br />
+    <br />
+    Regards,<br />
+    The LRNG Team
+}

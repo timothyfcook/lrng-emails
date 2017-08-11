@@ -1,0 +1,14 @@
+@import emails.html.emailHtmlTemplate
+@(badgeName: String, orgName: String, orgUrl: String, badgeDetailPageUrl: String)
+@emailHtmlTemplate("LRNG Badge Status Update"){
+    <p>
+        @orgName found a problem and removed the Badge, <a href="@badgeDetailPageUrl">@badgeName></a>, issued to you. Contact <a href="@orgUrl">@orgName</a> to learn more.
+    </p>
+    <p>
+        Best Regards,
+    </p>
+    <p>
+        The LRNG Team
+    </p>
+
+}

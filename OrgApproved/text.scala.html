@@ -1,0 +1,15 @@
+@import emails.html.emailTextTemplate
+@(firstName: String, supportEmail: String, verifyUrl: String)@emailTextTemplate {
+Hello @firstName,
+
+Congratulations! Your account request for LRNG has been approved. The next step is to verify your account and create a password.
+
+Verify my account @verifyUrl
+
+Please note: Your unique verification link is only active for 15 days.
+
+Have questions or feedback? Feel free to please contact us at @supportEmail.
+
+Best Regards,
+The LRNG Team
+}

@@ -1,0 +1,23 @@
+@import org.lrng.organization.Org
+@import org.lrng.app.UrlService
+@import emails.html.emailTextTemplate
+
+@(org: Org, urlService: UrlService)@emailTextTemplate {
+  @(org.primaryContactInfo.name.fullName ) just requested an org account for @(org.name).
+
+  Company Name: @(org.name)
+  Company Url: @(org.url)
+  Company Zipcode: @(org.zipcode)
+  Contact First Name: @(org.primaryContactInfo.name.first )
+  Contact Last Name: @(org.primaryContactInfo.name.last)
+  Contact Email: @(org.primaryContactInfo.email)
+  Contact Phone: @(org.primaryContactInfo.phone)
+  Contact Job Title: @(org.primaryContactInfo.jobTitle)
+  Network Affiliation: @(org.cityAffiliationHint.getOrElse("None"))
+  Contact Code: @(org.userInvites.head.code)
+
+  Please approve or reject this request using the LRNG super user interface.
+
+  Best Regards,
+  The LRNG Team
+}

@@ -1,0 +1,65 @@
+@import emails.html.emailTextTemplate
+@(displayName: String, isUnder13: Boolean, pendingLearner: Boolean, playlistName: Option[String], badgeName: String, opportunityName: Option[String], buttonUrl: String, feedbackName: String, feedbackBody: String)
+@emailTextTemplate{
+    @if(displayName) {
+        Hello @displayName!
+    } else {
+        Hello!
+    }
+    @if(playlistName) {
+        @if(opportunityName) {
+            @if(isUnder13) {
+                Congratulations! Your learner completed the @playlistName! You have earned the @badgeName Badge and unlocked the @opportunityName opportunity.
+            } else {
+                Congratulations on completing the @playlistName! You have earned the @badgeName Badge and unlocked the @opportunityName opportunity.
+            }
+        } else {
+            @if(isUnder13) {
+                Congratulations! Your learner completed the @playlistName! You have earned the @badgeName Badge.
+            } else {
+                Congratulations on completing the @playlistName! You have earned the @badgeName Badge.
+            }
+        }
+    } else {
+        @if(opportunityName) {
+            @if(isUnder13) {
+                Congratulations! Your learner has earned the @badgeName Badge and unlocked the @opportunityName opportunity!
+            } else {
+                Congratulations, you have earned the @badgeName Badge and unlocked the @opportunityName opportunity!
+            }
+        } else {
+            @if(isUnder13) {
+                Congratulations! Your learner has earned the @badgeName Badge! Help them login to see their progress on LRNG.
+            } else {
+                Congratulations, you have earned the @badgeName Badge! Check out your progress on LRNG.
+            }
+        }
+    }
+    This Badge serves as a digital credential that represents your learning achievements and unlocks opportunities. Share it with friends, in college or job applications – even add it to your LinkedIn profile.
+    @if(pendingLearner) {
+        Sign-up now to claim your Badge and follow your passions on LRNG.
+    }
+    @if(pendingLearner) {
+        @if(opportunityName) {
+            Sign-up to claim your Badge & Opportunity
+        } else {
+            Sign-up to claim your Badge
+        }
+    } else {
+        @if(opportunityName) {
+            View Badge & Opportunity
+        } else {
+            View Badge
+        }
+        @buttonUrl
+    }
+    @if(feedbackBody) {
+        Feedback from
+        @feedbackName
+        @feedbackBody
+    }
+    (c) 2016 Collective Shift | All Rights Reserved
+    Collective Shift, 209 Redwood Shores Pkwy, Redwood City, CA 94065
+    Privacy Policy (https://www.lrng.org/privacy)
+    To unsubscribe, write support@@lrng.org
+}

@@ -1,0 +1,9 @@
+@import emails.html.emailTextTemplate
+@(subject: String, firstName: Option[String], addressGuardian: Boolean, orgName: String, invitationUrl: String, supportEmail: String)
+@addressee = @{if (addressGuardian) "your learner" else "you"}
+@emailTextTemplate {Hello@firstName.map(" " + _).getOrElse("")!
+@orgName is inviting @addressee to join LRNG. Create your account to explore your passions, level-up, and unlock opportunities.
+Click to Activate: @invitationUrl
+Note: If you do not accept this invitation to setup an account you will receive no additional communications from LRNG. To request that @orgName does not invite you to join LRNG again, please send a note to @supportEmail
+
+}

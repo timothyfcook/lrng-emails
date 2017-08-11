@@ -1,0 +1,102 @@
+@import emails.html.emailHtmlTemplate
+@(displayName: String, isUnder13: Boolean, pendingLearner: Boolean, playlistName: Option[String], badgeName: String, opportunityName: Option[String], buttonUrl: String, feedbackName: String, feedbackBody: String)
+@emailHtmlTemplate("You've earned a Badge on LRNG!", suppressMainTemplateContent = true){
+    <div style="width: 100%; height: 10px; background: linear-gradient(to right, #e8388e, #6121d3);"></div>
+    <div style="margin-bottom: 35px; height: 200px; width: 800px; background-image: url('https://citiescdn.s3.amazonaws.com/static/background_images/BadgeImage.png'); background-repeat: no-repeat; background-size: cover; background-color: #000000; font-family: 'Maison Nueue Bold', Sans-serif; font-size: 48px; color: #FFFFFF; text-transform: uppercase; text-align: center; line-height: 210px; ">
+        Congratulations!
+    </div>
+
+    <div style="margin-bottom: 60px; font-family: 'Maison Nueue Bold', Sans-serif; font-size: 24px; color: #333333; text-align: center;">
+        @if(displayName.length > 0) {
+            Hello @displayName!
+        } else {
+            Hello!
+        }
+    </div>
+
+    <div style="margin: 0px 15% 35px; font-size: 18px; color: #333333; text-align: center;">
+        @if(playlistName) {
+            @if(opportunityName) {
+                @if(isUnder13) {
+                    Congratulations! Your learner completed the <span style="font-family: 'Maison Nueue Bold'">@playlistName</span>! You have earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span> and unlocked the <span style="font-family: 'Maison Nueue Bold'">@opportunityName</span> opportunity.
+                } else {
+                    Congratulations on completing the <span style="font-family: 'Maison Nueue Bold'">@playlistName</span>! You have earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span> and unlocked the <span style="font-family: 'Maison Nueue Bold'">@opportunityName</span> opportunity.
+                }
+            } else {
+                @if(isUnder13) {
+                    Congratulations! Your learner completed the <span style="font-family: 'Maison Nueue Bold'">@playlistName</span>! You have earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span>.
+                } else {
+                    Congratulations on completing the <span style="font-family: 'Maison Nueue Bold'">@playlistName</span>! You have earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span>.
+                }
+            }
+        } else {
+            @if(opportunityName) {
+                @if(isUnder13) {
+                    Congratulations! Your learner has earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span> and unlocked the <span style="font-family: 'Maison Nueue Bold'">@opportunityName</span> opportunity!
+                } else {
+                    Congratulations, you have earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span> and unlocked the <span style="font-family: 'Maison Nueue Bold'">@opportunityName</span> opportunity!
+                }
+            } else {
+                @if(isUnder13) {
+                    Congratulations! Your learner has earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span>! Help them login to see their progress on LRNG.
+                } else {
+                    Congratulations, you have earned the <span style="font-family: 'Maison Nueue Bold'">@badgeName Badge</span>! Check out your progress on LRNG.
+                }
+            }
+        }
+        <br />
+        <br />
+        This Badge serves as a digital credential that represents your learning achievements and unlocks opportunities. Share it with friends, in college or job applications – even add it to your LinkedIn profile.
+    </div>
+
+    @if(pendingLearner) {
+    <div style="margin-bottom: 35px; font-size: 18px; color: #333333; text-align: center;">
+        Sign-up now to claim your Badge and follow your passions on LRNG.
+    </div>
+    }
+
+    <div style="margin-bottom: 70px; font-size: 18px; color: #333333; text-align: center;">
+        <a style="text-decoration: none" href="@buttonUrl">
+            <div style="border-radius: 3px; margin: 0px auto; font-size: 14px; line-height: 30px; height: 30px; min-width: 300px; max-width: 300px; color: #ffffff; background-color: #000000">
+                @if(pendingLearner) {
+                @if(opportunityName) {
+                Sign-up to claim your Badge & Opportunity
+                } else {
+                Sign-up to claim your Badge
+                }
+                } else {
+                @if(opportunityName) {
+                View Badge & Opportunity
+                } else {
+                View Badge
+                }
+                }
+            </div>
+        </a>
+    </div>
+
+    @if(feedbackBody) {
+    <hr style="width: 500px; height: 1px; border: 0; border-top: 1px solid #CCCCCC; padding: 0; margin-bottom: 70px;" />
+    <div style="margin-bottom: 10px; font-family: 'Maison Nueue Book', Sans-serif; font-size: 16px; color: #9B9B9B; text-align: center;">
+        Feedback from
+    </div>
+    <div style="margin-bottom: 50px; font-family: 'Maison Nueue Bold', Sans-serif; font-size: 24px; color: #333333; text-align: center;">
+        @feedbackName
+    </div>
+    <div style="margin:0px 15% 70px; font-family: 'Maison Nueue Book', Sans-serif; font-size: 14px; color: #333333; text-align: left;">
+        @Html(feedbackBody)
+    </div>
+    }
+
+    <div style="text-align: center">
+        <img src="https://citiescdn.s3.amazonaws.com/static/lrng_logo.png" width="75" height="50" />
+    </div>
+    <hr style="width: 500px; height: 1px; border: 0; border-top: 1px solid #DDDDDD; padding: 0; margin-top: 20px; margin-bottom: 35px; text-align: center" />
+    <div style="font-family: 'Maison Nueue Book', Sans-serif; font-size: 11px; color: #333; margin-bottom: 35px; text-align: center;">
+                &copy; 2016 Collective Shift | All Rights Reserved<br/>
+        Collective Shift, 209 Redwood Shores Pkwy, Redwood City, CA 94065<br/>
+        <a style="font-family: 'Maison Nueue Book', Sans-serif; font-size: 11px; color: #333; text-decoration: none;" href="https://www.lrng.org/privacy" target="_blank">Privacy Policy</a><br/>
+        To unsubscribe, write <a href="mailto:support@@lrng.org?subject=UNSUBSCRIBE&body=UNSUBSCRIBE">support@@lrng.org</a>
+    </div>
+    <div style="width: 100%; height: 10px; background: linear-gradient(to right, #e8388e, #6121d3);"></div>
+}

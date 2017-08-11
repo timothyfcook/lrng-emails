@@ -1,0 +1,12 @@
+@import org.lrng.shared.Name
+@import emails.html.emailHtmlTemplate
+@(cityAdminName: Name, cityName: String, invitedEmail: String)
+@emailHtmlTemplate("Invitation to join and register declined") {
+  Hello @cityAdminName.first @cityAdminName.last,<br />
+  <br/>
+  @invitedEmail has turned down your invitation to join LRNG @cityName.
+  <br />
+  <br />
+  Best Regards,<br />
+  The LRNG Team
+}

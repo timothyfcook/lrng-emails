@@ -1,0 +1,14 @@
+@import emails.html.emailHtmlTemplate
+@(anchorOrgName: String, cityName:String)
+
+@emailHtmlTemplate("Account Update") {
+    Hi,
+    <br />
+    <br />
+    Your pending account has been unlinked from the @cityName network.<br />
+    <br />
+    If you have any questions regarding this change, please get in touch with your contact at @anchorOrgName .<br />
+    <br />
+    Best Regards,<br />
+    The LRNG Team
+}

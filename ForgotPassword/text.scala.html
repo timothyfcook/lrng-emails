@@ -1,0 +1,17 @@
+@import emails.html.emailTextTemplate
+@import org.lrng.app.UrlService
+
+@import org.lrng.user.User
+
+@(user: User, urlService: UrlService, supportEmail: String) @emailTextTemplate {
+	Hello @( user.name.fullName ),
+
+	We noticed you may have forgotten your LRNG username. No worries! Your username is @user.username.get.
+
+	Login using your username here: @( urlService.loginUrl() )
+
+	Have questions or feedback? Feel free to contact us. @supportEmail
+
+	Best Regards,
+	The LRNG Team
+}

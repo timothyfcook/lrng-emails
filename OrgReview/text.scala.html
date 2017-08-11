@@ -1,0 +1,12 @@
+@import org.lrng.organization.Org
+@import org.lrng.app.UrlService
+@import emails.html.emailTextTemplate
+
+@(org: Org, urlService: UrlService)@emailTextTemplate {
+  Hello @(org.primaryContactInfo.name.first),
+
+  Thanks for requesting to join LRNG as an Organization! We will be getting back to you shortly.
+
+  Best Regards,
+  The LRNG Team
+}

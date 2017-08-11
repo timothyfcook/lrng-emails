@@ -1,0 +1,19 @@
+@import emails.html.emailTextTemplate
+@import org.lrng.app.UrlService
+@import org.lrng.organization.Org
+@import org.lrng.shared.OrgContent
+@import org.lrng.shared.ResourceType
+@import org.lrng.xp.Xp
+@import java.text.SimpleDateFormat
+
+@(orgContent: OrgContent, org: Org, urlService: UrlService)
+
+@emailTextTemplate {
+	A new @(orgContent.resourceType.description) named "@(orgContent.name)" was published by @(org.name) at @(new SimpleDateFormat("hh:mm a").format(orgContent.publishDate.get)) on @(new SimpleDateFormat("MM/dd/yyyy").format(orgContent.publishDate.get)).
+	Review the published page here:@if(orgContent.resourceType == ResourceType.Playlist){ @(urlService.playlistUrl(org.slug, orgContent.slug)) } else { @(urlService.xpUrl(org.slug, if (orgContent.resourceType == ResourceType.LiveXp) Xp.Type.Live else Xp.Type.Online, orgContent.slug))}
+	This content was published to @(orgContent.distribution.description)
+
+	The admin for this organization can be reached at @(org.primaryContactInfo.email)
+
+	To stop getting these notifications, toggle off the New Content Notifications on your Network Admin "Account" page.
+}

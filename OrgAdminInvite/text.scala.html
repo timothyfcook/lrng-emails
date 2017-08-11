@@ -1,0 +1,13 @@
+@import emails.html.emailTextTemplate
+@(orgName: String, supportEmail: String, verifyUrl: String)@emailTextTemplate {
+	Hello,
+
+	You have been invited to join LRNG as an Org Admin for @orgName. This will allow you to manage organization users, draft and publish content, manage groups of learners, review playlist submissions and award badges and XPs to your learners. To learn more about your new role as an Org Admin, read this article: https://intercom.help/lrng/getting-started-for-organizations/lrng-user-roles.
+
+	To finish registering your account, please click here @verifyUrl. The link will expire in 15 days.
+
+	Have questions? Write us at @supportEmail.
+
+	Regards,
+	The LRNG Team
+}

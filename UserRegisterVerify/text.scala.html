@@ -1,0 +1,14 @@
+@import emails.html.emailTextTemplate
+@import org.lrng.app.UrlService
+
+@import org.lrng.user.User
+@(user: User, urlService: UrlService)@emailTextTemplate {
+Hello @( user.name.fullName ),
+
+
+You're almost there! To complete creating your LRNG account, we just need to confirm we got your email right.
+
+Verify your account at @(urlService.emailVerifyUrl(user))
+
+By verifying, you are taking another step towards turning learning into a lifestyle. It’s time to turn your passions into your own pathway to success!
+}

@@ -1,0 +1,15 @@
+@import org.lrng.app.UrlService
+@import emails.html.emailTextTemplate
+@import org.lrng.user.User
+@(recipient: User, code: String, supportEmail: String, urlService: UrlService)@emailTextTemplate {
+Hello @(recipient.name.first),
+
+We've received a request to update your LRNG account email.
+
+Please verify the email change.
+
+If you believe you received this email in error, please contact us.
+
+Best Regards,
+The LRNG Team
+}

@@ -1,0 +1,11 @@
+@import org.lrng.shared.Name
+@import emails.html.emailTextTemplate
+@(cityAdminName: Name, orgName: String, cityName: String)@emailTextTemplate {
+    Hello @cityAdminName.first @cityAdminName.last,
+
+    @orgName has turned down your invitation to join LRNG @cityName.
+
+
+    Best Regards,
+    The LRNG Team
+}

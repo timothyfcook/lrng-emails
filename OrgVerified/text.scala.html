@@ -1,0 +1,15 @@
+@import emails.html.emailTextTemplate
+@(firstName: String, role: String, orgName: String, loginUrl: String, supportEmail: String)@emailTextTemplate {
+Hi @firstName,
+
+Your @role account for @orgName has been verified!
+
+Log in below to begin exploring your dashboard and creating content for youth.
+
+Get started at @loginUrl
+
+Have questions or feedback? Feel free to contact us at @supportEmail.
+
+Best Regards,
+The LRNG Team
+}

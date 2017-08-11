@@ -1,0 +1,20 @@
+@import org.lrng.app.UrlService
+@import emails.html.emailHtmlTemplate
+@import org.lrng.user.User
+@(user: User, urlService: UrlService)
+
+@emailHtmlTemplate("LRNG Account Verification") {
+    Hello @( user.name.fullName ),
+    <br />
+    <br />
+
+    You're almost there! To complete creating your LRNG account, we just need to confirm we got your email right.
+    <br />
+    <br />
+
+    <a href="@(urlService.emailVerifyUrl(user))">Verify Your Account</a>
+    <br />
+    <br />
+
+    By verifying, you are taking another step towards turning learning into a lifestyle. It’s time to turn your passions into your own pathway to success!
+}

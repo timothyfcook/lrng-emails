@@ -1,0 +1,19 @@
+@import emails.html.emailTextTemplate
+@(anchorOrgName: String, cityName:String, orgAdminFirstName: String, verifyUrl: String, rejectUrl: String, supportEmail: String)
+
+@emailTextTemplate{
+  Hi @orgAdminFirstName,
+
+  You have been invited by @anchorOrgName to link your organization account with the @cityName network.
+
+  If you accept this association, your published content will become available to youth through the @cityName landing page. Additionally, @anchorOrgName admins will gain the ability to access your account to provide support as needed.
+
+  To approve, click here. @verifyUrl
+
+  To reject, click here. @rejectUrl
+
+  Have questions or feedback? Feel free to contact us. @supportEmail
+
+  Best Regards,
+  The LRNG Team
+}

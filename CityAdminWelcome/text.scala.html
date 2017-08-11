@@ -1,0 +1,15 @@
+@import emails.html.emailTextTemplate
+@import org.lrng.organization.Org
+@import org.lrng.user.User
+@(recipient: User, org: Org)@emailTextTemplate {
+Hi @(recipient.name.first),
+
+Your administrative rights for @org.name have been upgraded to a Network Account. This means you can now customize a youth facing landing page and begin inviting other organizations to join your network!
+
+Get started.
+
+Have questions or feedback? Feel free to contact us.
+
+Best Regards,
+The LRNG Team
+}

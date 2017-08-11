@@ -1,0 +1,15 @@
+@import emails.html.emailHtmlTemplate
+@(firstName: String, inviteUrl: String, supportEmail: String)
+
+@emailHtmlTemplate("New Verification Link") {
+    Hello @firstName,<br />
+    <br />
+    We’re re-sending your account verification link below, so that you can be on your way to helping make learning a lifestyle with LRNG.<br />
+    <br />
+    <a href="@inviteUrl">New verification link</a><br />
+    <br />
+    If you have any immediate questions and/or feedback, please <a href="@supportEmail">contact us</a>.<br />
+    <br />
+    Best Regards, <br />
+    The LRNG Team
+}

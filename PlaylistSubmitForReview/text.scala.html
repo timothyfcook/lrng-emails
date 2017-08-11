@@ -1,0 +1,15 @@
+@import emails.html.emailTextTemplate
+@import org.lrng.playlist.Playlist
+@import org.lrng.user.YouthUser
+@(youthUser: YouthUser, playlist: Playlist)@emailTextTemplate {
+    @if(youthUser.displayName.length > 0) {
+        Hello @(youthUser.displayName),
+    } else {
+        Hello,
+    }
+
+    Congrats! Your work for the @(playlist.name) Playlist has been successfully submitted and is now in review. You'll hear back as soon as your Badge is awarded, or if any revisions are needed first.
+
+    Best Regards,
+    The LRNG Team
+}

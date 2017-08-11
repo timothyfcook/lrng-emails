@@ -1,0 +1,60 @@
+@import emails.html.emailHtmlTemplate
+@import java.util.Date
+@import org.lrng.util.DateHelpers._
+@import org.lrng.learner.LearnerInvitationJob
+@import org.lrng.shared.MongoObjectId
+@import org.lrng.learner.Learner
+@import emails.LearnerUpload.html.reportPrefix
+@(subject: String, job: LearnerInvitationJob, learnerIdMap: Map[MongoObjectId, Learner])
+
+@emailHtmlTemplate(subject) {
+  <p>@reportPrefix(job.jobType == LearnerInvitationJob.JobType.Upload)</p>
+  <p>
+    <strong>Begin Time:&nbsp;</strong>@job.metadata.creationDate.simpleFormat<br />
+    <strong>End Time:&nbsp;</strong>@(new Date().simpleFormat)<br />
+    <strong>Elapsed Time:&nbsp;</strong>@job.elapsedTime<br />
+  </p>
+  <p>
+    <strong>Total Records Processed:&nbsp;</strong>@job.statusList.length<br />
+    <strong>Learners Added:&nbsp;</strong>@job.numLearnersAdded<br />
+    <br />
+    <strong>Emails Sent:&nbsp;</strong>@job.numEmailsSent<br />
+    <strong>Text Messages Sent:&nbsp;</strong>@job.numSmsSent<br />
+    <strong>Mapped to Registered Users:&nbsp;</strong>@job.numWithExistingUsers<br />
+    <strong>Invalid Email Addresses:&nbsp;</strong>@job.numInvalidEmails<br />
+    <strong>Invalid Phone Numbers:&nbsp;</strong>@job.numInvalidPhones<br />
+  </p>
+  <p>
+  @if(job.hasErrors) {
+    @if(job.numInvalidEmails > 0 || job.numInvalidPhones > 0) {
+      <h3>Contact Information Verification Errors</h3>
+      <ul>
+        @if(job.numInvalidEmails > 0) {
+          <li><strong>Email Addresses:</strong></li>
+          <ul>
+          @for(withEmailErr <- job.invalidEmails) {
+            <li><a href="#" style="text-decoration: none !important;
+              color: inherit">@{
+              withEmailErr.learnerId map learnerIdMap map (_.redacted.contactEmail)
+            }</a>
+            </li>
+            <br />
+          }
+          </ul>
+        }
+        @if(job.numInvalidPhones > 0) {
+          <li><strong>Phone Numbers:</strong></li>
+          <ul>
+          @for(withPhoneErr <- job.invalidPhones) {
+            <li>@{
+              withPhoneErr.learnerId map learnerIdMap map (_.redacted.contactPhone)
+            }</li>
+            <br />
+          }
+          </ul>
+        }
+      </ul>
+    }
+  }
+  </p>
+}

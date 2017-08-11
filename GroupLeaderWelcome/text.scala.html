@@ -1,0 +1,15 @@
+@import emails.html.emailTextTemplate
+@(firstName: String, orgName: String, supportEmail: String, loginUrl: String)@emailTextTemplate {
+Hello @firstName,
+
+Your Group Leader account for @orgName has been verified!
+
+Log in below to begin managing your groups.
+
+@loginUrl
+
+Have questions or feedback? Feel free to contact us at @supportEmail.
+
+Best Regards,
+The LRNG Team
+}

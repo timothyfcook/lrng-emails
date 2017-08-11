@@ -1,0 +1,13 @@
+@import emails.html.emailTextTemplate
+@(orgName: String, supportEmail: String, verifyUrl: String)@emailTextTemplate {
+	Hello,
+
+	You have been invited to join LRNG as a Content Manager for @orgName. This will allow you to draft and publish content, review playlist submissions and award badges and XPs to your learners. To learn more about your new role as a Content Manager, read this article "Getting Started as a Content Manager": https://intercom.help/lrng/getting-started-for-organizations/getting-started-for-content-managers
+
+	To finish registering your account, please click here @verifyUrl. The link will expire in 15 days.
+
+	Have questions? Write us at @supportEmail.
+
+	Regards,
+	The LRNG Team
+}

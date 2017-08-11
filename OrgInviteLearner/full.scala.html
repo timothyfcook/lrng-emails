@@ -1,0 +1,98 @@
+@import emails.html.emailHtmlTemplate
+@(subject: String, firstName: Option[String], addressGuardian: Boolean, orgUrl: String, orgName: String, invitationUrl: String, supportEmail: String)
+@addressee = @{if (addressGuardian) "your learner" else "you"}
+@emailHtmlTemplate(subject) {
+    <div style="width: 800px;
+        height: 4px;
+        background: linear-gradient(to right, #e8388e, #6121d3);
+        margin-bottom: 0px">
+    </div>
+    <div style="margin-bottom: 90px;
+        height: 420px;
+        width: 800px;
+        background-image: url('https://citiescdn.s3.amazonaws.com/static/background_images/LRNG_email_animate.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #000000;
+        font-family: 'Maison Nueue Bold', Sans-serif;
+        font-size: 24px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 150px;">
+        Join
+        <div>
+            <svg width="297px" height="138px" viewBox="0 0 297 138" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Invite-Email" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Email-Invite" transform="translate(-252.000000, -142.000000)" fill="#FFFFFF">
+                        <path d="M252.559871,279.274594 L252.559871,198.32361 L267.988017,198.32361 L267.988017,264.819061 L301.04833,264.819061 L301.04833,279.274594 L252.559871,279.274594 L252.559871,279.274594 Z M316.696878,225.677926 L316.696878,144.504549 L349.316386,144.504549 C357.471264,144.504549 364.303728,146.728477 369.372976,151.398726 C374.442224,156.068975 377.087049,162.295974 377.087049,170.302115 C377.087049,176.084328 375.544234,181.199363 372.458605,185.202434 C369.372976,189.205504 365.185336,192.096611 360.116089,193.875753 L377.307451,225.455533 L360.556893,225.455533 L344.467541,195.432503 L332.565828,195.432503 L332.565828,225.455533 L316.696878,225.455533 L316.696878,225.677926 Z M332.125024,181.866541 L347.993974,181.866541 C356.810057,181.866541 361.218099,178.085864 361.218099,170.302115 C361.218099,162.518367 356.810057,158.515296 347.993974,158.515296 L332.125024,158.515296 L332.125024,181.866541 L332.125024,181.866541 Z M403.314897,279.274594 L403.314897,198.32361 L418.743043,198.32361 L448.05652,251.475492 L448.276923,251.475492 L448.276923,198.32361 L463.925471,198.32361 L463.925471,279.274594 L448.717727,279.274594 L418.963445,226.122711 L418.743043,226.122711 L418.743043,279.274594 L403.314897,279.274594 L403.314897,279.274594 Z M517.483177,227.234675 C507.124279,227.234675 498.749,223.67639 492.357339,216.337428 C485.965679,209.220857 482.659648,198.32361 482.659648,183.645684 C482.659648,170.746901 486.186081,160.739224 493.018546,153.622654 C499.85101,146.283691 508.005888,142.725406 517.483177,142.725406 C525.638054,142.725406 532.470519,145.171727 538.200973,150.064369 C543.931427,154.957011 547.237459,161.628795 548.559871,170.302115 L533.131725,172.748436 C531.148106,162.295974 526.078858,157.180939 517.703579,157.180939 C512.413929,157.180939 508.005888,159.404867 504.259052,164.075116 C500.512217,168.745365 498.749,175.194757 498.749,183.645684 C498.749,193.430968 500.512217,200.769931 504.03865,205.662572 C507.565083,210.332822 512.193527,212.779143 517.703579,212.779143 C522.772827,212.779143 526.519663,211.444786 529.38489,208.553679 C532.250117,205.662572 533.792931,201.659502 533.792931,196.544467 L518.80559,196.544467 L518.80559,183.200898 L548.559871,183.200898 L548.559871,193.875753 C548.559871,204.105823 545.694644,212.334357 539.96419,218.338963 C534.013334,224.343569 526.519663,227.234675 517.483177,227.234675 L517.483177,227.234675 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <div style="width: 500px;
+        margin: 0 auto;">
+        <div style="margin-bottom: 50px;
+            font-family: 'Maison Nueue Bold', Sans-serif;
+            font-size: 26px;
+            color: #111;
+            text-align: left;">
+            Hello@firstName.map(" " + _).getOrElse("")!
+        </div>
+
+        <div style="margin-bottom: 50px;
+            font-size: 21px;
+            color: #111;
+            text-align: left;">
+            <style scoped>
+                    a {
+                        text-decoration: none;
+                    }
+
+                    a:hover, a:active, a:focus {
+                        text-decoration: underline;
+                    }
+            </style>
+
+            <a style="color: #111;" href="@orgUrl">
+                <span style="color: #111;"><strong>@orgName</strong></span>
+            </a> is inviting @addressee to
+            <a style="color: #908F90;" href="@invitationUrl"><span style="color: #908F90;">join</span></a>
+            LRNG.
+            <a style="color: #908F90;" href="@invitationUrl"><span style="color: #908F90;">Create your account</span></a>
+            to explore your passions, level-up, and unlock opportunities.
+        </div>
+
+        <div style="margin-bottom: 50px;
+            font-size: 24px;
+            color: #111;
+            text-align: center;">
+            <a style="text-decoration: none;
+                color: #FFF;" href="@invitationUrl">
+                <div style="border-radius: 3px;
+                    margin: 0px auto;
+                    line-height: 50px;
+                    height: 50px;
+                    min-width: 500px;
+                    max-width: 500px;
+                    background-color: #111">
+                    <span style="font-size: 24px;
+                        text-decoration: none;
+                        color: #FFF;">Click to Activate</span>
+                </div>
+            </a>
+        </div>
+
+        <div style="margin-bottom: 10px;
+            font-family: 'Maison Nueue Book', Sans-serif;
+            font-size: 11px;
+            color: #908F90;
+            text-align: left;">
+            Note: If you do not accept this invitation to setup an account you will receive no additional communications from LRNG.
+            To request that @orgName does not invite you to join LRNG again, please send a note to
+            <a style="color: #908F90;" href="mailto:@supportEmail"><span style="color: #908F90;">@supportEmail</span></a>
+        </div>
+    </div>
+}

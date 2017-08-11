@@ -1,0 +1,16 @@
+@import emails.html.emailTextTemplate
+@import org.lrng.playlist.Playlist
+@import org.lrng.user.YouthUser
+@import org.lrng.badge.Badge
+@(youthUser: YouthUser, playlist: Playlist, badge: Badge)@emailTextTemplate {
+    @if(youthUser.displayName.length > 0) {
+        Hi @(youthUser.displayName),
+    } else {
+        Hi,
+    }
+
+    You’ve finished all required XPs in the "@(playlist.name)" Playlist, which means you can now submit your work to earn the "@(badge.name)" Badge and unlock opportunities!
+
+    Best Regards,
+    The LRNG Team
+}

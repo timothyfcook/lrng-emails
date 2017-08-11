@@ -1,0 +1,22 @@
+@import emails.html.emailHtmlTemplate
+@import org.lrng.playlist.Playlist
+@import org.lrng.user.YouthUser
+@import org.lrng.badge.Badge
+@(youthUser: YouthUser, playlist: Playlist, badge: Badge, playlistDetailPageUrl: String)
+
+@emailHtmlTemplate("Playlist Ready To Submit") {
+    @if(youthUser.displayName.length > 0) {
+        Hi @(youthUser.displayName),<br />
+    } else {
+        Hi,
+    }
+    <br />
+    You’ve finished all required XPs in the "<a>@(playlist.name)</a>"
+    Playlist, which means you can now <a href="@playlistDetailPageUrl">submit your work</a>
+    to earn the "@(badge.name)" Badge and unlock opportunities!<br />
+    <br />
+    Best Regards, <br />
+    The LRNG Team
+
+}
+

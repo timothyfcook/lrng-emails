@@ -1,0 +1,38 @@
+@import emails.html.emailHtmlTemplate
+@(displayName: String, isUnder13: Boolean, pendingLearner: Boolean, xpName: String, orgName: String, xpDetailPageUrl: String)
+@emailHtmlTemplate("You just got credit for an XP on LRNG!"){
+    <div style="margin-bottom: 60px; font-family: 'Maison Nueue Bold', Sans-serif; font-size: 48px; color: #333333; text-align: center;">
+        @if(displayName) {
+            Hello @displayName!
+        } else {
+            Hello!
+        }
+    </div>
+
+    <div style="margin: 0px 15% 35px; font-size: 18px; color: #333333; text-align: center;">
+        @if(pendingLearner) {
+            @if(isUnder13) {
+                Nice work! Your learner just got credit for the @xpName XP from @orgName. Help them sign-up now to see their work and follow their passions on LRNG.
+            } else {
+                Nice work! You just got credit for the @xpName XP from @orgName. Sign-up now to see your work and follow your passions on LRNG.
+            }
+        } else {
+            @if(isUnder13) {
+                Nice work! Your learner just got credit for the @xpName XP from @orgName. Help them sign-in to see their progress on LRNG.
+            } else {
+                Nice work! You just got credit for the @xpName XP from @orgName. Check out your progress on LRNG.
+            }
+        }
+    </div>
+    <div style="margin-bottom: 35px; font-size: 18px; color: #333333; text-align: center;">
+        <a style="text-decoration: none" href="@xpDetailPageUrl">
+            <div style="border-radius: 3px; margin: 0px auto; font-size: 14px; line-height: 30px; height: 30px; min-width: 300px; max-width: 300px; color: #ffffff; background-color: #000000">
+                @if(pendingLearner) {
+                    Sign-up and see XP
+                } else {
+                    Sign-in and see XP
+                }
+            </div>
+        </a>
+    </div>
+}

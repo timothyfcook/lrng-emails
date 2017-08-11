@@ -1,0 +1,20 @@
+@import emails.html.emailTextTemplate
+@(orgName: String, supportEmail: String, verifyUrl: String, groupNameList: Iterable[String])@emailTextTemplate {
+Hello,
+
+You have been invited to join LRNG as a Group Leader for @orgName. This will allow you to manage groups of learners assigned to you, review playlists for learners within those groups, and also award badges and XPs to those learners. To learn more about your new role as a Group Leader, read this article – "Getting Started as a Group Leader": https://intercom.help/lrng/getting-started-for-organizations/getting-started-for-group-leaders
+@if(groupNameList.nonEmpty) {
+The following groups have already been assigned to you:
+    @for(groupName <- groupNameList) {
+        - @groupName
+
+    }
+}
+
+To finish registering your account, please click here @verifyUrl. The link will expire in 15 days.
+
+Have questions? Write us at @supportEmail.
+
+Regards,
+The LRNG Team
+}

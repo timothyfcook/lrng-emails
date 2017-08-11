@@ -1,0 +1,43 @@
+@import emails.html.emailTextTemplate
+@import org.lrng.learner.LearnerInvitationJob
+@import org.lrng.shared.MongoObjectId
+@import org.lrng.learner.Learner
+@import emails.LearnerUpload.html.reportPrefix
+@import org.lrng.util.DateHelpers._
+@import java.util.Date
+
+@(job: LearnerInvitationJob, learnerIdMap: Map[MongoObjectId, Learner])
+@emailTextTemplate {
+
+@reportPrefix(job.jobType == LearnerInvitationJob.JobType.Upload)
+
+Begin Time: @job.metadata.creationDate.simpleFormat
+End Time: @(new Date().simpleFormat)
+Elapsed Time: @job.elapsedTime
+
+Total Records Processed: @job.statusList.length
+
+Learners Added: @job.numLearnersAdded
+
+Emails Sent: @job.numEmailsSent
+Text Messages Sent: @job.numSmsSent
+Mapped to Registered Users: @job.numWithExistingUsers
+Invalid Email Addresses: @job.numInvalidEmails
+Invalid Phone Numbers: @job.numInvalidPhones
+
+@if(job.hasErrors) {
+Contact Information Verification Errors
+
+@if(job.numInvalidEmails > 0) {
+Email Addresses:
+@for(withEmailErr <- job.invalidEmails) {
+@{
+withEmailErr.learnerId map learnerIdMap map (_.redacted.contactEmail)
+}}}
+@if(job.numInvalidPhones > 0) {
+Phone Numbers:
+@for(withPhoneErr <- job.invalidPhones) {
+@{
+withPhoneErr.learnerId map learnerIdMap map (_.redacted.contactPhone)
+}}}}
+}

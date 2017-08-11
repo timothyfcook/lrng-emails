@@ -1,0 +1,14 @@
+@import emails.html.emailTextTemplate
+@(displayName: String, playlistName: String, badgeName: String, orgName: String)
+@emailTextTemplate{
+    Hi @displayName,
+
+    Almost there! Your work for the "@playlistName" Playlist has been reviewed by @orgName, and it looks like revisions are needed in order to earn the "@badgeName" Badge on LRNG.
+
+    All you need to do is check out the feedback, update your XPs, and re-submit for approval.
+
+    Visit LRNG to view feedback.
+
+    Best Regards,
+    The LRNG Team
+}

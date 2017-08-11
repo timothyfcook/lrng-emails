@@ -1,0 +1,28 @@
+@import emails.html.emailTextTemplate
+@(displayName: String, isUnder13: Boolean, pendingLearner: Boolean, xpName: String, orgName: String, xpDetailPageUrl: String)
+@emailTextTemplate{
+    @if(displayName) {
+        Hello @displayName!
+    } else {
+        Hello!
+    }
+    @if(pendingLearner) {
+        @if(isUnder13) {
+            Nice work! Your learner just got credit for the @xpName XP from @orgName. Help them sign-up now to see their work and follow their passions on LRNG.
+        } else {
+            Nice work! You just got credit for the @xpName XP from @orgName. Sign-up now to see your work and follow your passions on LRNG.
+        }
+    } else {
+        @if(isUnder13) {
+            Nice work! Your learner just got credit for the @xpName XP from @orgName. Help them sign-in to see their progress on LRNG.
+        } else {
+            Nice work! You just got credit for the @xpName XP from @orgName. Check out your progress on LRNG.
+        }
+    }
+    @if(pendingLearner) {
+        Sign-up and see XP
+    } else {
+        Sign-in and see XP
+    }
+    @xpDetailPageUrl
+}

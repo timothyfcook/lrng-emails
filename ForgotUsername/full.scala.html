@@ -1,0 +1,23 @@
+@import org.lrng.app.UrlService
+@import emails.html.emailHtmlTemplate
+@import org.lrng.user.User
+@(user: User, urlService: UrlService, supportEmail: String)
+
+@emailHtmlTemplate("LRNG Account Verification") {
+    Hello @( user.name.fullName ),
+    <br />
+    <br />
+
+    We noticed you may have forgotten your LRNG username. No worries! Your username is @( user.username.get ).
+    <br />
+    <br />
+
+    <a href="@( urlService.loginUrl() )">Click here</a> to login.<br />
+    <br />
+    <br />
+
+    If you believe you received this email in error, please <a href="mailto:@supportEmail">contact us</a>.
+    <br /><br />
+    Best Regards,<br />
+    The LRNG Team
+}

@@ -1,0 +1,13 @@
+@import emails.html.emailTextTemplate
+@(orgName: String, anchorOrgName: String, cityName: String, orgAdminFirstName: String)
+
+@emailTextTemplate{
+  Hi @orgAdminFirstName,
+
+  Your account for @orgName has been unlinked from the @cityName network, which means your published content will no longer be available to youth through the @cityName landing page.
+
+  If you have any questions regarding this change, please get in touch with your contact at @anchorOrgName .
+
+  Best Regards,
+  The LRNG Team
+}

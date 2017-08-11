@@ -1,0 +1,22 @@
+@import emails.html.emailHtmlTemplate
+@(totalSubmissions: Int, earliestSubmissionDate: String, approvalsUrl: String, accountSettingsUrl: String)
+
+@emailHtmlTemplate("Account Upgrade") {
+    <p>
+        Dear Reviewer,
+    </p>
+    <p>
+        You currently have @{totalSubmissions} @if(totalSubmissions == 1){submission}else{submissions} awaiting approval. The oldest submission was posted on @{earliestSubmissionDate}.
+    </p>
+    <p>
+        Review your submissions here: <a href="@{approvalsUrl}">@{approvalsUrl}</a>
+    </p>
+    <p>
+        To opt out of these notifications go to the Admin Info section of your <a href="@{accountSettingsUrl}">Account</a> page and uncheck the option for Reviewer Notifications.
+    </p>
+    <p>
+        Best Regards,
+        <br />
+        The LRNG Team
+    </p>
+}

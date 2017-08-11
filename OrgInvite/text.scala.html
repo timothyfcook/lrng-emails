@@ -1,0 +1,25 @@
+@import emails.html.emailTextTemplate
+@(anchorOrgName: String, cityName:String, verifyUrl: String, rejectUrl: String, supportEmail: String)
+@emailTextTemplate {
+  Hello!
+  @anchorOrgName has invited you to setup an account for your organization within the @cityName  network on LRNG.
+
+
+  Use the link below to get started:
+
+
+  @verifyUrl
+
+  To reject, click @rejectUrl
+
+  With this account your published content will become available to Learners through the @cityName landing page. Additionally, @anchorOrgName admins will gain the ability to access your account to provide support as needed.
+
+
+  Have questions or feedback? Feel free to contact us. @supportEmail
+
+
+  Best Regards,
+
+  The LRNG Team
+
+}

@@ -1,0 +1,35 @@
+@import emails.html.emailHtmlTemplate
+@import org.lrng.organization.Org
+
+@import org.lrng.app.UrlService
+@(org: Org, urlService: UrlService)
+@emailHtmlTemplate("Org Review") {
+  <span>@(org.primaryContactInfo.name.fullName )</span> just requested an org account for @(org.name)<br />
+  <br />
+  Company Name: @(org.name)
+  <br />
+  Company Url: @(org.url)
+  <br />
+  Company Zipcode: @(org.zipcode)
+  <br />
+  Contact First Name: @(org.primaryContactInfo.name.first )
+  <br />
+  Contact Last Name: @(org.primaryContactInfo.name.last)
+  <br />
+  Contact Email: @(org.primaryContactInfo.email)
+  <br />
+  Contact Phone: @(org.primaryContactInfo.phone)
+  <br />
+  Contact Job Title: @(org.primaryContactInfo.jobTitle)
+  <br />
+  Network Affiliation: @(org.cityAffiliationHint.getOrElse("None"))
+  <br />
+  Contact Code: @(org.userInvites.head.code)
+  <br />
+  <br />
+  Please approve or reject this request using the LRNG super user interface.
+  <br />
+  <br />
+  Best Regards, <br />
+  The LRNG Team
+}

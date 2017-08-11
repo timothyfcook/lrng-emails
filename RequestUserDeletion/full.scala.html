@@ -1,0 +1,10 @@
+@import emails.html.emailHtmlTemplate
+@(name: String, id: String, username: String)
+
+@emailHtmlTemplate("User Requests Deletion") {
+    @(name) wants to delete their account.
+    <br/><br/>
+    Their id is @(id).
+    <br/><br/>
+    Their username is @(username).
+}

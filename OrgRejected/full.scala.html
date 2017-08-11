@@ -1,0 +1,12 @@
+@import emails.html.emailHtmlTemplate
+@(firstName: String, supportEmail: String)
+
+@emailHtmlTemplate("Registration Request Denied") {
+    Hello @firstName,<br />
+    <br />
+    Thank you so much for your interest in LRNG. We have reviewed your request for an account and are unable to provide you access at this time. If you have questions or would like to discuss your situation further, please contact us at <a href="mailto:@supportEmail">@supportEmail</a>.<br />
+    <br />
+    <br />
+    Best Regards,<br />
+    The LRNG Team
+}

@@ -1,0 +1,22 @@
+@import emails.html.emailHtmlTemplate
+@(displayName: String, playlistName: String, badgeName: String, orgName: String, playlistDetailPageUrl: String)
+@emailHtmlTemplate("Playlist Submission Feedback"){
+    Hi @displayName,
+    <br />
+    <br />
+    Almost there! Your work for the "@playlistName" Playlist has been reviewed by @orgName, and it looks like revisions are needed in order to earn the "@badgeName" Badge on LRNG.
+    <br />
+    <br />
+    All you need to do is check out the feedback, update your XPs, and re-submit for approval.
+
+    <div style="margin-top: 30px; margin-bottom: 30px; font-size: 18px; color: #333333; text-align: center;">
+        <a style="text-decoration: none" href="@playlistDetailPageUrl">
+            <div style="border-radius: 3px; margin: 0px auto; font-size: 14px; line-height: 30px; height: 30px; min-width: 300px; max-width: 300px; color: #ffffff; background-color: #000000">
+                View Feedback
+            </div>
+        </a>
+    </div>
+
+    Best Regards,<br />
+    The LRNG Team
+}

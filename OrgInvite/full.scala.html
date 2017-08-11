@@ -1,0 +1,25 @@
+@import emails.html.emailHtmlTemplate
+@(anchorOrgName: String, cityName:String, verifyUrl: String, rejectUrl: String, supportEmail: String)
+
+@emailHtmlTemplate("City Org Invite") {
+  Hello!<br />
+  <br/>
+
+  @anchorOrgName has invited you to setup an account for your organization within the @cityName network on LRNG.
+  <br /><br />
+  Use the link below to get started:
+  <br /><br />
+
+  <a href="@verifyUrl">Setup my account</a>.
+  <br /><br />
+  To reject, click <a href="@rejectUrl">here</a>.
+  <br /><br />
+
+
+  With this account your published content will become available to Learners through the @cityName landing page. Additionally, @anchorOrgName admins will gain the ability to access your account to provide support as needed.
+  <br /><br />
+  Have questions or feedback? Feel free to <a href="mailto:@supportEmail">contact us.</a>
+  <br /><br />
+  Best Regards,<br />
+  The LRNG Team
+}
