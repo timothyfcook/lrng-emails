@@ -6,12 +6,12 @@
 @emailHtmlTemplate("Your LRNG Contact Email") {
     Hello @(recipient.name.first),<br />
     <br/>
-    We've received a request to update your LRNG account email.<br />
+    We've received a request to update the email address for your LRNG account.<br />
     <br />
     Please verify <a href="@urlService.confirmChangeEmailUrl(code)">the email change</a>.<br />
     <br />
-    If you believe you received this email in error, please <a href="mailto:@supportEmail">contact us</a>.<br />
+    If you believe this email was sent in error, please <a href="mailto:@supportEmail">contact us</a>.<br />
     <br />
-    Best Regards,<br />
+    Cheers,<br />
     The LRNG Team
 }
