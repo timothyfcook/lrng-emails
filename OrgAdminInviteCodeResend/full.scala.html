@@ -1,15 +1,16 @@
 @import emails.html.emailHtmlTemplate
-@(firstName: String, inviteUrl: String, supportEmail: String)
+@(orgName: String, supportEmail: String, verifyUrl: String)
 
 @emailHtmlTemplate("New Verification Link") {
-    Hello @firstName,<br />
+    Hello,<br />
     <br />
-    We’re re-sending your account verification link below, so that you can be on your way to helping make learning a lifestyle with LRNG.<br />
+    You have been reinvited to join LRNG as an Org Admin for @orgName. This will allow you to manage organization users, draft and publish content, manage groups of learners, review playlist submissions and award badges and XPs to your learners.<br />
     <br />
-    <a href="@inviteUrl">New verification link</a><br />
+
+    To finish registering your account, please <a href="@verifyUrl">CLICK HERE</a>. The link will expire in 15 days.<br />
     <br />
-    If you have any immediate questions and/or feedback, please <a href="@supportEmail">contact us</a>.<br />
+    To learn more about your new role as an Org Admin, read our article on <a href="https://intercom.help/lrng/getting-started-for-organizations/lrng-user-roles">Getting Started for Reviewers</a>. Have questions? Write us at <a href="mailto:@supportEmail">@supportEmail</a>.<br />
     <br />
-    Best Regards, <br />
+    Cheers,<br />
     The LRNG Team
 }

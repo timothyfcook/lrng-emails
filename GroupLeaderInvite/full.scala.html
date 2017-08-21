@@ -4,7 +4,7 @@
 @emailHtmlTemplate("Group Leader Invitation") {
     Hello,<br />
     <br />
-    You have been invited to join LRNG as a Group Leader for @orgName. This will allow you to manage groups of learners assigned to you, review playlists for learners within those groups, and also award badges and XPs to those learners. To learn more about your new role as a Group Leader, read this article: <a href="https://intercom.help/lrng/getting-started-for-organizations/getting-started-for-group-leaders">Getting Started as a Group Leader</a>.<br />
+    You have been invited to join LRNG as a Group Leader for @orgName. This will allow you to manage groups of learners assigned to you, review playlists for learners within those groups, and also award badges and XPs to those learners.<br />
     <br />
     @if(groupNameList.nonEmpty) {
         The following groups have already been assigned to you:<br />
@@ -15,8 +15,9 @@
         </ul>
     }
     To finish registering your account, please <a href="@verifyUrl">CLICK HERE</a>. The link will expire in 15 days.<br />
-    Have questions? Write us at <a href="mailto:@supportEmail">@supportEmail</a>.<br />
     <br />
-    Regards,<br />
+    To learn more about your new role as a Group Leader, read our article on <a href="https://intercom.help/lrng/getting-started-for-organizations/getting-started-for-group-leaders">Getting Started for Reviewers</a>. Have questions? Write us at <a href="mailto:@supportEmail">@supportEmail</a>.<br />
+    <br />
+    Cheers,<br />
     The LRNG Team
-}
+    }
